@@ -10,12 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Practica_SQLite">
         <activity
-            android:name=".NuevoActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:name=".VerActivity"
+            android:exported="false" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".EditarActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".NuevoActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

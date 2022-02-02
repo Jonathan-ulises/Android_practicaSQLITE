@@ -20,16 +20,20 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_CONTACTOS + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nombre TEXT NOT NULL," +
+                "name TEXT NOT NULL," +
                 "telefono TEXT NOT NULL," +
                 "email TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE " + TABLE_CONTACTOS);
+//        db.execSQL("DROP TABLE " + TABLE_CONTACTOS);
+        db.execSQL("ALTER TABLE " + TABLE_CONTACTOS + " RENAME COLUMN nombre TO name");
+//        db.execSQL("ALTER TABLE " + TABLE_CONTACTOS + " ADD COLUMN cp TEXT");
         // Si la tabla ya contenia informacion, en lugar de crear una tabla
         // hacer un ALTER TABLE sobre la tabla modificada
         onCreate(db);
     }
+
+
 }

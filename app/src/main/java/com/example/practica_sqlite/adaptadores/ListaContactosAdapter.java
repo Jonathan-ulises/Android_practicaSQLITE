@@ -1,5 +1,7 @@
 package com.example.practica_sqlite.adaptadores;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.practica_sqlite.R;
+import com.example.practica_sqlite.VerActivity;
 import com.example.practica_sqlite.entidades.Contactos;
 
 import java.util.ArrayList;
@@ -50,6 +53,13 @@ public class ListaContactosAdapter extends RecyclerView.Adapter<ListaContactosAd
             viewNombre = itemView.findViewById(R.id.viewNombre);
             viewTelefono = itemView.findViewById(R.id.viewTelefono);
             viewCorreo = itemView.findViewById(R.id.viewEmail);
+
+            itemView.setOnClickListener(v -> {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, VerActivity.class);
+                intent.putExtra("id", listaContactos.get(getAdapterPosition()).getId());
+                context.startActivity(intent);
+            });
         }
     }
 }
